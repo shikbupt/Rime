@@ -60,14 +60,16 @@ patch:
     tags: abc
 
 
-#  "speller/algebra/@before 1": xform/^([b-df-hj-np-tv-z])$/$1_/
-#  "speller/algebra/@before 2": derive/([ei])n$/$1ng/            # 模糊拼音 en => eng, in => ing
-#  "speller/algebra/@before 3": derive/([ei])ng$/$1n/            # 模糊拼音 eng => en, ing => in
+  "speller/algebra/@before 1": xform/^([b-df-hj-np-tv-z])$/$1_/
+  "speller/algebra/@before 2": derive/([aei])n$/$1ng/            # 模糊拼音 en => eng, in => ing
+  "speller/algebra/@before 3": derive/([aei])ng$/$1n/            # 模糊拼音 eng => en, ing => in
+  "speller/algebra/@before 4": derive/^([zcs])h/$1/
+  "speller/algebra/@before 5": derive/^([zcs])([^h])/$1h$2/
 
   translator/enable_completion: true  # 开启逐鍵提示
   translator/initial_quality: 1     # 主翻译器的优先级设为1
   translator/preedit_format: {}     # 输入双拼码的时候不转化为全拼码
-
+  translator/spelling_hints: 8
 
 # 載入朙月拼音擴充詞庫
   "translator/dictionary": luna_pinyin.extended
